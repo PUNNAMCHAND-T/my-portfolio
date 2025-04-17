@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    overflow-x: hidden;  /* Allow vertical scrolling, but hide horizontal scroll */
+    color: white; 
+    font-family: Verdana, sans-serif;
+}
+
+#particleCanvas {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+.button-container button {
+    background-color: #bd9168;
+    padding: 10px 20px;
+    border: groove 5px;
+    font-weight: bold;
+    color: white; 
+}
+
+h2 {
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px 0;
+}
+
+.button-container a {
+    text-decoration: none;
+}
+
+.button-container button {
+    background-color: #bd9168;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.button-container button:hover {
+    background-color: #a77650;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #ffffff55;
+    margin: 20px 0;
+    width: 80%;
+}

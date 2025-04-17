@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group input[type="email"],
+        .form-group select,
+        .form-group textarea,
+        .form-group input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .submit-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-container a {
+            margin: 10px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    <p>
+        <center>
+            <h1><font color="white">CONTACT</font></h1>
+        </center>
+    </p>
+    
+    <div class="button-container">
+        <a href="home.html"><button>Home</button></a>
+        <a href="portfolio.html"><button>Portfolio</button></a>
+        <a href="gallery.html"><button>Gallery</button></a>
+        <a href="about.html"><button>About</button></a>
+        
+    </div>
+
+    <center><P>
+        <h3><font color="white">Fill the form to contact us</font></h3>
+    </P></center>
+
+    <center>
+        <form id="contactForm" method="POST" action="contact_form.php" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name">
+                <div class="error-message" id="nameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone number:</label>
+                <select id="country_code" name="country_code" required>
+                    <option value="">code</option>
+                    <option value="+91">+91</option>
+                    <option value="+880">+880</option>
+                    <option value="+977">+977</option>
+                    <option value="+975">+975</option>
+                    <option value="+86">+86</option>
+                    <option value="+1">+1</option>
+                    <option value="+971">+971</option>
+                    <option value="+39">+39</option>
+                </select>
+                <input type="number" id="phone" name="number" placeholder="Enter your number" required>
+                <div class="error-message" id="phoneError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <div class="error-message" id="emailError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender">
+                    <option value="">Select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <div class="error-message" id="genderError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date">
+                <div class="error-message" id="dateError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <select id="country" name="country">
+                    <option value="">Select</option>
+                    <option value="India">India</option>
+                    <option value="Bangladesh">Bangladesh</option>
+                    <option value="Nepal">Nepal</option>
+                    <option value="Bhutan">Bhutan</option>
+                    <option value="China">China</option>
+                    <option value="USA">USA</option>
+                    <option value="UAE">UAE</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Italy">Italy</option>
+                </select>
+                <div class="error-message" id="countryError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" cols="30" rows="4" placeholder="Feel free to use"></textarea>
+                <div class="error-message" id="messageError"></div>
+            </div>
+
+            <div class="submit-container">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Clear">
+            </div>
+        </form>
+    </center>
+
+    <center>
+        <p><h3>Other platforms</h3></p>
+        <div class="button-container">
+            <a href="https://www.youtube.com/@cristiano"><button>Youtube</button></a>
+            <a href="https://x.com/Cristiano"><button>X</button></a>
+            <a href="https://www.facebook.com/Cristiano" ><button>Facebook</button></a>
+            <a href="https://www.cristianoronaldo.com/#cr7"><button>Official website</button></a>
+            <a href="https://www.instagram.com/cristiano?igsh=N3g3cnJvanl4Zjhs"><button>Instagram</button></a>
+        </div>
+    </center>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+
+            document.getElementById("nameError").textContent = "";
+            document.getElementById("phoneError").textContent = "";
+            document.getElementById("emailError").textContent = "";
+            document.getElementById("genderError").textContent = "";
+            document.getElementById("dateError").textContent = "";
+
+            const nameInput = document.getElementById("name");
+            if (nameInput.value.trim() === "") {
+                document.getElementById("nameError").textContent = "Name is required";
+                isValid = false;
+            }
+
+            const phoneInput = document.getElementById("phone");
+            if (phoneInput.value.trim() === "") {
+                document.getElementById("phoneError").textContent = "Phone number is required";
+                isValid = false;
+            } else if (!/^\d+$/.test(phoneInput.value.trim())) {
+                document.getElementById("phoneError").textContent = "Phone number must contain only digits";
+                isValid = false;
+            }
+
+            const emailInput = document.getElementById("email");
+            if (emailInput.value.trim() === "") {
+                document.getElementById("emailError").textContent = "Email is required";
+                isValid = false;
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) {
+                document.getElementById("emailError").textContent = "Invalid email format";
+                isValid = false;
+            }
+
+            const genderSelect = document.getElementById("gender");
+            if (genderSelect.value === "") {
+                document.getElementById("genderError").textContent = "Please select your gender";
+                isValid = false;
+            }
+
+            const dateInput = document.getElementById("date");
+            if (dateInput.value === "") {
+                document.getElementById("dateError").textContent = "Please select a date";
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
