@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PORTFOLIO</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Verdana, sans-serif;
+      background-color: #111;
+      color: white;
+      overflow-x: hidden;
+    }
+    
+    #particleCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1, h2, h3, p {
+      color: white;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .button-container a {
+      text-decoration: none;
+    }
+
+    .button-container button {
+      background-color: #bd9168;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .button-container button:hover {
+      background-color: #a76c45;
+      transform: scale(1.05);
+    }
+
+    img {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+
+    hr {
+      border: none;
+      height: 1px;
+      background: #fff3;
+      margin: 30px 0;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="particleCanvas"></canvas>
+  <script src="script.js"></script>
+  <div class="content">
+    <h1 style="text-align:center;">PORTFOLIO</h1>
+
+    <div class="button-container">
+      <a href="home.html"><button>Home</button></a>
+      
+      <a href="gallery.html"><button>Gallery</button></a>
+      <a href="about.html"><button>About</button></a>
+      <a href="contact.html"><button>Contact</button></a>
+    </div>
+
+    <p style="text-align: center; font-size: 18px;">
+      "This page provides a glimpse into my learning journey. Here you'll find a collection of projects that demonstrate my growing expertise in software development, AI/ML, and web development. Each project represents a valuable learning experience and a step towards my professional goals."
+    </p>
+
+    <p><h3>Other platforms</h3></p>
+    <div class="button-container">
+        <a href="https://www.linkedin.com/in/punnamchand-t-98b933290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><button style="background-color: #7dd0bb">Linkedin</button></a>
+        <a href="https://github.com/PUNNAMCHAND-T"><button style="background-color: #8b639c">github</button></a>
+        <a href="https://leetcode.com/u/PUNNAMCHAND_T/" ><button style="background-color: #c57989">leetcode</button></a>
+        
+    </div>
+
+    <hr>
+    <h2 style="text-align: center;">PROJECTS</h2>
+
+    <center><p ><h2>  1. AI-powered image recognition system </h2></p></center>
+    <P>
+      <h3>Description:</h3>
+      This project involved developing a recommendation system for an e-commerce platform.
+       The primary goal was to enhance user experience by providing personalized product suggestions, increasing customer engagement and driving sales. 
+       The system utilized collaborative filtering algorithms to analyze user purchase history and identify patterns among similar users, enabling the recommendation of relevant and appealing products.                  
+       <h3>Technologies Used:</h3>
+       <ul>
+        <li>Python: The core programming language for data processing, model development, and system implementation.</li>
+        <li>Pandas, NumPy: Libraries for efficient data manipulation and numerical computations.</li>
+        <li>Scikit-learn: A comprehensive machine learning library providing various algorithms for collaborative filtering.</li>
+        <li>Flask: A lightweight web framework for deploying and serving the recommendation system as a web service.</li>
+       </ul>
+       <h3>Key Skills Demonstrated</h3>
+       <ul>
+        <li>Data Analysis and Processing: Extracting, cleaning, and transforming large datasets.</li>
+        <li>Machine Learning: Implementing and evaluating collaborative filtering algorithms.</li>
+        <li>Software Engineering: Designing and developing a robust and scalable system.</li>
+        <li>Problem-Solving: Identifying and addressing challenges related to data sparsity and cold-start problems.</li>
+        <li>Communication and Teamwork: Collaborating with team members and effectively communicating project progress and results.</li>
+       </ul>
+    </P>
+        
+  <center><p ><h2>  2. personalized music recommendation system </h2></p></center>
+  <P>
+    <h3>Description:</h3>
+    This project involved developing a personalized music recommendation system using machine learning techniques. 
+    The system analyzes user listening history, music preferences, and social interactions to generate customized music playlists, enhancing the user experience and discovering new artists and genres.
+     <h3>Technologies Used:</h3>
+     <ul>
+      <li>Python: The core programming language for data processing, model development, and system implementation.</li>
+      <li>Pandas, NumPy: Libraries for efficient data manipulation and numerical computations.</li>
+      <li>Scikit-learn: A comprehensive machine learning library providing various algorithms for collaborative filtering</li>
+      <li>Flask: A lightweight web framework for deploying and serving the recommendation system as a web service.</li>
+     </ul>
+     <h3>Key Skills Demonstrated</h3>
+     <ul>
+      <li>Data Analysis and Processing: Extracting, cleaning, and transforming large datasets.</li>
+      <li>Machine Learning: Implementing and evaluating collaborative filtering algorithms.</li>
+      <li>Software Engineering: Designing and developing a robust and scalable system.</li>
+      <li>Problem-Solving: Identifying and addressing challenges related to data sparsity and cold-start problems.</li>
+      <li>Communication and Teamwork: Collaborating with team members and effectively communicating project progress and results.</li>
+     </ul> </br> </br> in this code the 2 projects are give change the projects another projects related to cloud computing and give code 
+    <hr>
+    <h3 style="text-align: center;">THANK YOU</h3>
+  </div>
+
+  <script>
+    
+    document.addEventListener("DOMContentLoaded", function () {
+      const canvas = document.getElementById('particleCanvas');
+      const ctx = canvas.getContext('2d');
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+
+      const particles = [];
+      const numParticles = 180;
+      const particleAlpha = 0.7;
+      const lineColorBase = { r: 0, g: 100, b: 200 };
+      const lineAlpha = 0.3;
+      const maxSpeed = 2;
+      const minDistance = 150;
+      const particleMaxSize = 3;
+      const particleMinSize = 1;
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * maxSpeed;
+          this.vy = (Math.random() - 0.5) * maxSpeed;
+          this.radius = Math.random() * (particleMaxSize - particleMinSize) + particleMinSize;
+          this.baseHue = Math.random() * 360;
+          this.hueVariation = Math.random() * 30 - 15;
+        }
+
+        draw() {
+          ctx.beginPath();
+          const hue = this.baseHue + this.hueVariation;
+          const color = `hsla(${hue}, 70%, 50%, ${particleAlpha})`;
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = color;
+          ctx.fill();
+        }
+
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+
+          const dampingFactor = 0.98;
+          if (this.x < 0 || this.x > width) {
+            this.vx *= -dampingFactor;
+            this.x = this.x < 0 ? 0 : width;
+          }
+          if (this.y < 0 || this.y > height) {
+            this.vy *= -dampingFactor;
+            this.y = this.y < 0 ? 0 : height;
+          }
+
+          this.draw();
+        }
+      }
+
+      function connectParticles() {
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const p1 = particles[i];
+            const p2 = particles[j];
+            const dx = p1.x - p2.x;
+            const dy = p1.y - p2.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < minDistance) {
+              ctx.beginPath();
+              ctx.moveTo(p1.x, p1.y);
+              ctx.lineTo(p2.x, p2.y);
+              const alpha = 1 - (distance / minDistance);
+              const lineColor = `rgba(${lineColorBase.r}, ${lineColorBase.g}, ${lineColorBase.b}, ${lineAlpha * alpha})`;
+              ctx.strokeStyle = lineColor;
+              ctx.lineWidth = 0.8 * alpha;
+              ctx.globalAlpha = alpha;
+              ctx.stroke();
+              ctx.globalAlpha = 1;
+            }
+          }
+        }
+      }
+
+      function animate() {
+        ctx.fillStyle = '#0d1b2a'; 
+        ctx.fillRect(0, 0, width, height);
+
+        for (const particle of particles) {
+          particle.update();
+        }
+        connectParticles();
+        requestAnimationFrame(animate);
+      }
+
+      function init() {
+        particles.length = 0;
+        for (let i = 0; i < numParticles; i++) {
+          particles.push(new Particle());
+        }
+        animate();
+      }
+
+      window.addEventListener('resize', () => {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+        init();
+      });
+
+      init();
+      <center>
+        <p><h3>Other platforms</h3></p>
+        <div class="button-container">
+            <a href="https://www.linkedin.com/in/punnamchand-t-98b933290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><button>Linkedin</button></a>
+            <a href=""><button>github</button></a>
+            <a href="" ><button>leetcode</button></a>
+            
+        </div>
+    </center>
+    });
+  </script>
+ 
+</body>
+</html>
